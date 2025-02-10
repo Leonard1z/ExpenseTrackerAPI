@@ -1,0 +1,584 @@
+{
+	"info": {
+		"_postman_id": "b29dd2fb-b339-43ba-92e1-31e3ffa14d5d",
+		"name": "ExpenseTrackerAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21137477"
+	},
+	"item": [
+		{
+			"name": "UserRegistration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"Leonard\",\r\n    \"LastName\": \"Zaberxha\",\r\n    \"Email\": \"leonardzab0@gmail.com\",\r\n    \"Password\": \"Leonard123$\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7107/api/userAccount/register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"userAccount",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"leonardzab0@gmail.com\",\r\n  \"password\": \"Leonard123$\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7107/api/Auth/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"Auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddSingleCategory",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJMZW9uYXJkIiwiZW1haWwiOiJsZW9uYXJkemFiMEBnbWFpbC5jb20iLCJuYmYiOjE3MzkxODk3NjYsImV4cCI6MTczOTE5MzM2NiwiaWF0IjoxNzM5MTg5NzY2LCJpc3MiOiJFeHBlbnNlVHJhY2tlciIsImF1ZCI6ImFjY291bnQifQ.B5VG6ypNiCr00pOUPq4eGjbfP1oZIcJ6kfmuG3ha30M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Groceries\",\r\n  \"description\": \"Expenses related to food\",\r\n  \"budget\": 500.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7107/api/category/create-category",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"category",
+						"create-category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddSingleExpense",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJMZW9uYXJkIiwiZW1haWwiOiJsZW9uYXJkemFiMEBnbWFpbC5jb20iLCJuYmYiOjE3MzkxODg0MTUsImV4cCI6MTczOTE5MjAxNSwiaWF0IjoxNzM5MTg4NDE1LCJpc3MiOiJFeHBlbnNlVHJhY2tlciIsImF1ZCI6ImFjY291bnQifQ.yylEvVRhpxMq4tSxp8f59xpWgd9cwiiRGaUTjG9XsUk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 130,\r\n  \"note\": \"Expenses related to food\",\r\n  \"categoryId\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7107/api/expense/create-expense",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"expense",
+						"create-expense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllExpenses",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJMZW9uYXJkIiwiZW1haWwiOiJsZW9uYXJkemFiMEBnbWFpbC5jb20iLCJuYmYiOjE3MzkxODg0MTUsImV4cCI6MTczOTE5MjAxNSwiaWF0IjoxNzM5MTg4NDE1LCJpc3MiOiJFeHBlbnNlVHJhY2tlciIsImF1ZCI6ImFjY291bnQifQ.yylEvVRhpxMq4tSxp8f59xpWgd9cwiiRGaUTjG9XsUk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7107/api/expense/getAll",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"expense",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateExpense",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJMZW9uYXJkIiwiZW1haWwiOiJsZW9uYXJkemFiMEBnbWFpbC5jb20iLCJuYmYiOjE3MzkxODg0MTUsImV4cCI6MTczOTE5MjAxNSwiaWF0IjoxNzM5MTg4NDE1LCJpc3MiOiJFeHBlbnNlVHJhY2tlciIsImF1ZCI6ImFjY291bnQifQ.yylEvVRhpxMq4tSxp8f59xpWgd9cwiiRGaUTjG9XsUk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 20,\r\n  \"expenseDate\": \"2025-02-09T00:00:00\",\r\n  \"categoryId\": 1,\r\n  \"note\": \"Updated description for the expense.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7107/api/expense/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"expense",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteExpense",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJMZW9uYXJkIiwiZW1haWwiOiJsZW9uYXJkemFiMEBnbWFpbC5jb20iLCJuYmYiOjE3MzkxODg0MTUsImV4cCI6MTczOTE5MjAxNSwiaWF0IjoxNzM5MTg4NDE1LCJpc3MiOiJFeHBlbnNlVHJhY2tlciIsImF1ZCI6ImFjY291bnQifQ.yylEvVRhpxMq4tSxp8f59xpWgd9cwiiRGaUTjG9XsUk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7107/api/expense/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"expense",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMostExpensiveExpense",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJMZW9uYXJkIiwiZW1haWwiOiJsZW9uYXJkemFiMEBnbWFpbC5jb20iLCJuYmYiOjE3MzkxODk3NjYsImV4cCI6MTczOTE5MzM2NiwiaWF0IjoxNzM5MTg5NzY2LCJpc3MiOiJFeHBlbnNlVHJhY2tlciIsImF1ZCI6ImFjY291bnQifQ.B5VG6ypNiCr00pOUPq4eGjbfP1oZIcJ6kfmuG3ha30M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7107/api/expense/most-expensive?fromDate=2025-02-01&toDate=2025-02-9",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"expense",
+						"most-expensive"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2025-02-01"
+						},
+						{
+							"key": "toDate",
+							"value": "2025-02-9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLeastExpensiveExpense",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJMZW9uYXJkIiwiZW1haWwiOiJsZW9uYXJkemFiMEBnbWFpbC5jb20iLCJuYmYiOjE3MzkxODg0MTUsImV4cCI6MTczOTE5MjAxNSwiaWF0IjoxNzM5MTg4NDE1LCJpc3MiOiJFeHBlbnNlVHJhY2tlciIsImF1ZCI6ImFjY291bnQifQ.yylEvVRhpxMq4tSxp8f59xpWgd9cwiiRGaUTjG9XsUk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7107/api/expense/least-expensive?fromDate=2025-02-01&toDate=2025-02-9",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"expense",
+						"least-expensive"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2025-02-01"
+						},
+						{
+							"key": "toDate",
+							"value": "2025-02-9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDailyAverageExpense",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJMZW9uYXJkIiwiZW1haWwiOiJsZW9uYXJkemFiMEBnbWFpbC5jb20iLCJuYmYiOjE3MzkxOTIzNTYsImV4cCI6MTczOTE5NTk1NiwiaWF0IjoxNzM5MTkyMzU2LCJpc3MiOiJFeHBlbnNlVHJhY2tlciIsImF1ZCI6ImFjY291bnQifQ.eIBJ3Pl-Xv8Rd2w9yvt4qFM5jV4IeC8VLAWBnUcDI7c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7107/api/expense/average-daily-expense?fromDate=2025-01-01&toDate=2025-01-31",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"expense",
+						"average-daily-expense"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2025-01-01"
+						},
+						{
+							"key": "toDate",
+							"value": "2025-01-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMonthlyAverageExpense",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJMZW9uYXJkIiwiZW1haWwiOiJsZW9uYXJkemFiMEBnbWFpbC5jb20iLCJuYmYiOjE3MzkxOTMzMjQsImV4cCI6MTczOTE5NjkyNCwiaWF0IjoxNzM5MTkzMzI0LCJpc3MiOiJFeHBlbnNlVHJhY2tlciIsImF1ZCI6ImFjY291bnQifQ.e45aAgavdPOuUwOJpvJ8Ms3v1mgwYI8haeu6cfQGN2Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7107/api/expense/average-monthly-expense?fromDate=2024-11-01&toDate=2025-01-31",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"expense",
+						"average-monthly-expense"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2024-11-01"
+						},
+						{
+							"key": "toDate",
+							"value": "2025-01-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetYearlyAverageExpense",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJMZW9uYXJkIiwiZW1haWwiOiJsZW9uYXJkemFiMEBnbWFpbC5jb20iLCJuYmYiOjE3MzkxOTU2MTQsImV4cCI6MTczOTE5OTIxNCwiaWF0IjoxNzM5MTk1NjE0LCJpc3MiOiJFeHBlbnNlVHJhY2tlciIsImF1ZCI6ImFjY291bnQifQ.SylrB1Dn2sPggKtyXb9CWa5B0fTmuhSlS7fxRjNYXjI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7107/api/expense/average-yearly-expense?fromDate=2024-01-01&toDate=2025-02-11",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"expense",
+						"average-yearly-expense"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2024-01-01"
+						},
+						{
+							"key": "toDate",
+							"value": "2025-02-11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTotalExpense",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJMZW9uYXJkIiwiZW1haWwiOiJsZW9uYXJkemFiMEBnbWFpbC5jb20iLCJuYmYiOjE3MzkxOTYyNzYsImV4cCI6MTczOTE5OTg3NiwiaWF0IjoxNzM5MTk2Mjc2LCJpc3MiOiJFeHBlbnNlVHJhY2tlciIsImF1ZCI6ImFjY291bnQifQ.y9GTMCMvPCd2n4Ecnk2XwxmrYbA72kd1Gtv96AK-Hoo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7107/api/expense/total-expenses?fromDate=2025-02-01&toDate=2025-02-11",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"expense",
+						"total-expenses"
+					],
+					"query": [
+						{
+							"key": "fromDate",
+							"value": "2025-02-01"
+						},
+						{
+							"key": "toDate",
+							"value": "2025-02-11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetHighestExpenseUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJMZW9uYXJkIiwiZW1haWwiOiJsZW9uYXJkemFiMEBnbWFpbC5jb20iLCJuYmYiOjE3MzkxOTc1NTIsImV4cCI6MTczOTIwMTE1MiwiaWF0IjoxNzM5MTk3NTUyLCJpc3MiOiJFeHBlbnNlVHJhY2tlciIsImF1ZCI6ImFjY291bnQifQ.m5NzW7D4dCELjfXVjBxjdC8qKqPQBMb5Vk470GSZvfk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7107/api/expense/highest-expense-user",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"expense",
+						"highest-expense-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMostFrequenstCategory",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJMZW9uYXJkIiwiZW1haWwiOiJsZW9uYXJkemFiMEBnbWFpbC5jb20iLCJuYmYiOjE3MzkxOTc1NTIsImV4cCI6MTczOTIwMTE1MiwiaWF0IjoxNzM5MTk3NTUyLCJpc3MiOiJFeHBlbnNlVHJhY2tlciIsImF1ZCI6ImFjY291bnQifQ.m5NzW7D4dCELjfXVjBxjdC8qKqPQBMb5Vk470GSZvfk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7107/api/expense/most-frequent-category",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"expense",
+						"most-frequent-category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMonthWithHighestAveragedailyspending",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7107/api/expense/month-with-highest-average-daily-spending",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7107",
+					"path": [
+						"api",
+						"expense",
+						"month-with-highest-average-daily-spending"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
